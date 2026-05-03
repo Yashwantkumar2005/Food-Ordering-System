@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ordermunch.ordermunchloginui.PaymentTController">
+   <children>
+      <TextField fx:id="cardNumberTextField" layoutX="171.0" layoutY="148.0" prefHeight="25.0" prefWidth="282.0" />
+      <DatePicker fx:id="dobDatePicker" layoutX="171.0" layoutY="292.0" />
+      <TextField fx:id="cardNameTextField" layoutX="171.0" layoutY="84.0" prefHeight="25.0" prefWidth="282.0" />
+      <Button fx:id="payButton" layoutX="171.0" layoutY="345.0" mnemonicParsing="false" onAction="#PaymentButtonOnAction" text="Pay" />
+      <Label layoutX="61.0" layoutY="88.0" text="Name as on card" />
+      <Label layoutX="71.0" layoutY="152.0" text="Card number" />
+      <Label layoutX="92.0" layoutY="220.0" text="CVV" />
+      <Label layoutX="69.0" layoutY="296.0" text="Date Of Expiry" />
+      <AnchorPane layoutX="-1.0" layoutY="-1.0" prefHeight="57.0" prefWidth="606.0" style="-fx-background-color: #66ff00;">
+         <children>
+            <Label layoutX="271.0" layoutY="18.0" text="Payment">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <PasswordField fx:id="cvvPasswordField" layoutX="171.0" layoutY="216.0" prefHeight="25.0" prefWidth="282.0" />
+      <Label fx:id="paymentLabel" layoutX="258.0" layoutY="56.0" />
+   </children>
+</AnchorPane>

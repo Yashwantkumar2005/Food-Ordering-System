@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="mainmenuBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ordermunch.ordermunchloginui.HelpMenuController">
+    <top>
+        <AnchorPane prefHeight="100.0" prefWidth="800.0" style="-fx-background-color: #ffe500;" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@Ordermunchlogo.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="334.0" layoutY="35.0" prefHeight="30.0" prefWidth="230.0" text="OrderMunch to munch all day">
+                    <font>
+                        <Font name="Tw Cen MT Condensed Extra Bold" size="20.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+    </top>
+    <center>
+        <AnchorPane prefHeight="400.0" prefWidth="680.0" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fitHeight="400.0" fitWidth="680.0" layoutX="122.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@backgroundOM1.jpg" />
+                    </image>
+                </ImageView>
+                <Line endX="-190.0" endY="385.0" layoutX="311.0" layoutY="12.0" startX="-190.00003051757812" startY="-114.0" strokeWidth="2.0" />
+                <AnchorPane prefHeight="400.0" prefWidth="120.0" style="-fx-background-color: #ffe500;">
+                    <children>
+                        <ImageView fitHeight="400.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@OrderMunchBanner.png" />
+                            </image>
+                        </ImageView>
+                    </children></AnchorPane>
+                <Line endX="343.0" endY="-1.0" layoutX="457.0" layoutY="1.0" startX="-456.0" strokeWidth="2.0" />
+                <AnchorPane fx:id="hamburgerAnchorPane" layoutX="697.0" layoutY="61.0" prefHeight="250.0" prefWidth="104.0" visible="false">
+                    <children>
+                        <Button fx:id="restaurantButton" layoutX="13.0" layoutY="-1.0" mnemonicParsing="false" onAction="#switchtoRestaurantsMenu" text="Restaurant" />
+                        <Button fx:id="cartButton" layoutX="25.0" layoutY="40.0" mnemonicParsing="false" onAction="#switchtoCartMenu" text="Cart" />
+                        <Button fx:id="trackButton" layoutX="26.0" layoutY="80.0" mnemonicParsing="false" onAction="#switchtoTrackMenu" text="Track" />
+                        <Button fx:id="contactButton" layoutX="22.0" layoutY="118.0" mnemonicParsing="false" onAction="#switchtoContactMenu" text="Contact" />
+                        <Button fx:id="menuButton" layoutX="13.0" layoutY="155.0" mnemonicParsing="false" onAction="#switchtoMainMenu" text="Main Menu" />
+                        <Button fx:id="logoutButton" layoutX="23.0" layoutY="194.0" mnemonicParsing="false" onAction="#switchtoLoginMenu" text="Log Out" />
+                    </children>
+                </AnchorPane>
+                <Button layoutX="710.0" layoutY="21.0" mnemonicParsing="false" onAction="#HamburgerMenuButtonAction" prefHeight="30.0" prefWidth="77.0" text="Menu" />
+            <Label layoutX="229.0" layoutY="68.0" text="Refer to the Contact Menu or Type your query below" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="queryTextField" layoutX="229.0" layoutY="135.0" prefHeight="66.0" prefWidth="463.0" promptText="Enter query here" style="-fx-background-color: white;" />
+            <Button layoutX="229.0" layoutY="238.0" mnemonicParsing="false" onAction="#enterQueryButton" text="Send" />
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>
