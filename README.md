@@ -64,7 +64,7 @@ OrderMunchloginui/
 3. **Build and Run**
    ```bash
    # Clone the repository
-   git clone <repository-url>
+   git clone https://github.com/Yashwantkumar2005/Food-Ordering-System.git
    cd OrderMunchloginui
    
    # Build the project
