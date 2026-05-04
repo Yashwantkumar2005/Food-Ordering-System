@@ -1,148 +1,138 @@
-# Package Manager
+# OrderMunch - Food Ordering System
 
-A desktop application for managing software packages and their versions, built with Python, Tkinter, and MySQL.
+A JavaFX-based desktop application for online food ordering with multiple restaurant options.
 
 ## Features
 
-- **Package Management**: Add, remove, and list packages
-- **Version Control**: Install multiple versions of packages, set current versions, and remove specific versions
-- **Version History**: Track installation timestamps and maintain a history of all versions
-- **Current Version Tracking**: Only one version can be marked as current per package
-- **MySQL Persistence**: All data stored in a MySQL database for reliability
-- **Modern Tkinter GUI**: Clean, intuitive interface for easy package management
+- User authentication (Login/Registration)
+- Multiple restaurant menus:
+  - ATB (A2B) - South Indian cuisine
+  - KFC - Fried chicken and fast food
+  - MR - Mughlai cuisine
+  - CR - Chinese restaurant
+- Cart management
+- Order tracking
+- Payment processing
+- Help/Support section
+- Attractive UI with custom styling
 
 ## Project Structure
 
 ```
-.
-├── database.py           # Database connection and query handling
-├── package_manager.py    # Core package management logic
-├── gui_package_manager.py # Tkinter GUI interface
-├── schema.sql            # Database schema definition
-├── requirements.txt      # Python dependencies
-├── test_package_manager.py # Unit tests for core components
-└── README.md             # This file
+OrderMunchloginui/
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/ordermunch/ordermunchloginui/
+│   │   │       ├── controllers/          # All FXML controllers
+│   │   │       ├── model/                # Data models (if any)
+│   │   │       ├── utils/                # Utility classes
+│   │   │       └── OrderMunchApplication.java  # Main application class
+│   │   └── resources/
+│   │       ├── com/ordermunch/ordermunchloginui/
+│   │       │   ├── fxml/                 # All FXML files for UI
+│   │       │   ├── css/                  # Stylesheets
+│   │       │   ├── images/               # Restaurant logos and food images
+│   │       │   └── ButtonImages/         # Button icons
+│   │       └── background images
+├── Readme_Images/                        # Screenshots for README
+├── ordermunch.sql                        # Database schema
+├── pom.xml                               # Maven configuration
+└── mvnw*                                 # Maven wrapper
 ```
 
-## Installation
+## Technologies Used
 
-### Prerequisites
+- **JavaFX** - For the graphical user interface
+- **FXML** - For declarative UI design
+- **CSS** - For styling the application
+- **Maven** - For dependency management and build
+- **MySQL** - For data storage (based on the SQL file)
+- **JDBC** - For database connectivity
 
-- Python 3.6+
-- MySQL Server 8.0+
-- mysql-connector-python package
+## Setup and Installation
 
-### Setup
+1. **Prerequisites**
+   - Java JDK 8 or higher
+   - Maven 3.0+
+   - MySQL Server
 
-1. **Clone the repository**
+2. **Database Setup**
+   - Import the `ordermunch.sql` file into your MySQL database
+   - Update database credentials in `DatabaseConnection.java` if needed
+
+3. **Build and Run**
    ```bash
-   git clone https://github.com/Yashwantkumar2005/Food-Ordering-System.git
-   cd Package-manager
+   # Clone the repository
+   git clone <repository-url>
+   cd OrderMunchloginui
+   
+   # Build the project
+   mvn clean install
+   
+   # Run the application
+   mvn javafx:run
+   ```
+   
+   Or using the Maven wrapper:
+   ```bash
+   ./mvnw clean install
+   ./mvnw javafx:run
    ```
 
-2. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
+## Application Flow
 
-3. **Configure MySQL**
-   - Ensure MySQL server is running
-   - Update credentials in `gui_package_manager.py` if needed (defaults: localhost/root/1234)
-   - The application will automatically create the `package_manager` database and tables
+1. **Launch Application** - Starts with login/registration screen
+2. **User Authentication** - Login or register new account
+3. **Main Menu** - Choose from different restaurant options
+4. **Menu Selection** - Browse items and add to cart
+5. **Cart Management** - Review and modify cart items
+6. **Checkout** - Enter delivery information
+7. **Payment** - Process payment (simulated)
+8. **Order Confirmation** - View order details and tracking
 
-4. **Initialize the database**
-   ```bash
-   # The application will run the schema.sql automatically on first launch
-   # Or you can manually initialize:
-   mysql -u root -p < schema.sql
-   ```
+## Controllers
 
-## Usage
-
-### Running the Application
-
-The application uses environment variables for database configuration. You can either:
-1. Set the environment variables directly when running (recommended for security)
-2. Or modify the default values in `gui_package_manager.py`
-
-**Example using environment variables:**
-```bash
-DB_HOST=localhost DB_USER=your_username DB_PASSWORD=your_password DB_NAME=package_manager DB_PORT=3306 python gui_package_manager.py
-```
-
-**Important:** Replace `your_username` and `your_password` with your actual MySQL credentials. The database name (`package_manager`) will be created automatically if it doesn't exist.
-
-> **Note:** Since this runs on your local machine, you're using your own MySQL instance. Your packages are stored in your local database, not in any shared or remote repository.
-
-### Using the GUI
-
-1. **Add a Package**
-   - Click "Add Package" button
-   - Enter package name and optional description
-
-2. **Install Versions**
-   - Select a package from the list
-   - Click "Install Version"
-   - Enter the version number to install
-
-3. **Set Current Version**
-   - Select a package
-   - Select a version from the version list
-   - Click "Set as Current"
-
-4. **Remove Versions/Packages**
-   - Select the item to remove
-   - Click the appropriate remove button
-   - Confirm the action in the dialog
-
-5. **Refresh**
-   - Click "Refresh" to reload the package list from the database
+- `LoginController.java` - Handles user login
+- `RegisterController.java` - Handles user registration
+- `MainmenuController.java` - Main restaurant selection screen
+- Various restaurant controllers (ATB, KFC, MR, CR) - Handle menu displays
+- `CartMenuController.java` - Manages shopping cart
+- `OrderMenuController.java` - Handles order placement
+- `PaymentController.java` - Processes payments
+- `TrackMenuController.java` - Tracks order status
+- `HelpMenuController.java` - Provides help/support
+- `ContactMenuController.java` - Contact information
 
 ## Database Schema
 
-The application uses two tables:
+The `ordermunch.sql` file contains tables for:
+- Users (login credentials, personal information)
+- Menu items (for each restaurant)
+- Orders
+- Order items
+- Payments
 
-### packages
-- `id`: Auto-increment primary key
-- `name`: Unique package name
-- `description`: Package description
-- `created_at`: Timestamp of package creation
+## Customization
 
-### package_installations
-- `id`: Auto-increment primary key
-- `package_id`: Foreign key to packages table
-- `version_number`: Version string (e.g., "1.0.0")
-- `installed_at`: Timestamp of installation
-- `is_current`: Boolean flag indicating if this is the current version
+- To change the application theme, modify CSS files in `resources/css/`
+- To add new restaurants, create new FXML files and corresponding controllers
+- To modify menu items, update the database or FXML files
+- To change images, replace files in the `resources/images/` directories
 
-## Testing
+## Future Enhancements
 
-Run the unit tests to verify the core functionality:
+- Integration with real payment gateways
+- Admin panel for managing restaurants and menu items
+- Order history for users
+- Ratings and reviews system
+- Promo codes and discounts
+- Mobile-responsive design
+- Real-time order tracking
 
-```bash
-python test_package_manager.py
-```
-
-Note: These tests verify the structure and basic functionality. For full integration tests, ensure MySQL is running and configured correctly.
-
-## Configuration
-
-Database connection parameters can be configured through environment variables. The application will use these values if set, otherwise it will use the defaults:
-- `DB_HOST`: MySQL host (default: localhost)
-- `DB_USER`: MySQL username (default: root)
-- `DB_PASSWORD`: MySQL password (default: empty string - **you must set this**)
-- `DB_NAME`: Database name (default: package_manager)
-- `DB_PORT`: MySQL port (default: 3306)
-
-**Important:** For security reasons, the GUI no longer hardcodes database credentials. You must set the `DB_PASSWORD` environment variable when running the application, or modify the defaults in `gui_package_manager.py`.
-
-**Example:**
-```bash
-DB_HOST=localhost DB_USER=root DB_PASSWORD=your_password DB_NAME=package_manager DB_PORT=3306 python gui_package_manager.py
-```
 
 ## Acknowledgments
 
-- Built with Python Tkinter for the GUI
-- Uses mysql-connector-python for database connectivity
-- Inspired by package management systems like npm, pip, and apt
+- JavaFX documentation and community
+- Maven ecosystem
+- Various open-source icons and images used in the application
