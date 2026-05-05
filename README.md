@@ -119,9 +119,3 @@ The `ordermunch.sql` file contains tables for:
 - To add new restaurants, create new FXML files and corresponding controllers
 - To modify menu items, update the database or FXML files
 - To change images, replace files in the `resources/images/` directories
-
-## Acknowledgments
-
-- JavaFX documentation and community
-- Maven ecosystem
-- Various open-source icons and images used in the application
