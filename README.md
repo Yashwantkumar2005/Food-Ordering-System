@@ -120,17 +120,6 @@ The `ordermunch.sql` file contains tables for:
 - To modify menu items, update the database or FXML files
 - To change images, replace files in the `resources/images/` directories
 
-## Future Enhancements
-
-- Integration with real payment gateways
-- Admin panel for managing restaurants and menu items
-- Order history for users
-- Ratings and reviews system
-- Promo codes and discounts
-- Mobile-responsive design
-- Real-time order tracking
-
-
 ## Acknowledgments
 
 - JavaFX documentation and community
